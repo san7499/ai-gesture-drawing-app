@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}AI Gesture Drawing App{% endblock %}
+
+{% block content %}
+
+<div class="video-container">
+    <h2>Live Camera Feed</h2>
+
+    <!-- Webcam Stream -->
+    <img id="videoFeed"
+         src="{{ url_for('main_routes.video_feed') }}"
+         width="800"
+         style="border:3px solid white; border-radius:6px;">
+</div>
+
+
+<div class="canvas-container">
+    <h2>Drawing Canvas</h2>
+
+    <canvas id="drawingCanvas"
+            width="800"
+            height="500"
+            style="border:3px solid white; background:black;">
+    </canvas>
+</div>
+
+
+<div class="controls">
+
+    <button onclick="clearCanvas()">Clear</button>
+    <button onclick="saveDrawing()">Save</button>
+
+</div>
+
+
+<div class="colors">
+
+    <span class="color-btn red" onclick="changeColor('red')" title="Red"></span>
+    <span class="color-btn green" onclick="changeColor('green')" title="Green"></span>
+    <span class="color-btn blue" onclick="changeColor('blue')" title="Blue"></span>
+    <span class="color-btn yellow" onclick="changeColor('yellow')" title="Yellow"></span>
+
+</div>
+
+{% endblock %}

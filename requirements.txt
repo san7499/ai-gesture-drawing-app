@@ -1,0 +1,12 @@
+Flask
+opencv-python
+mediapipe
+numpy
+openai
+python-dotenv
+Pillow
+scipy
+requests
+tqdm
+absl-py
+protobuf
