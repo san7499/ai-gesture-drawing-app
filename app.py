@@ -5,6 +5,7 @@ Main Flask application for the
 AI Hand Gesture Drawing Application.
 """
 
+import os
 from flask import Flask
 from config import DevelopmentConfig
 
@@ -24,7 +25,7 @@ def create_app():
     # Load configuration
     app.config.from_object(DevelopmentConfig)
 
-    # Register Blueprints
+    # Register blueprints
     app.register_blueprint(main_routes)
     app.register_blueprint(ai_routes)
 
@@ -38,11 +39,15 @@ app = create_app()
 if __name__ == "__main__":
 
     print("\n🚀 Starting AI Gesture Drawing App...")
-    print("🌐 Open your browser at: http://127.0.0.1:5000\n")
+
+    # Get port from environment (Render uses PORT)
+    port = int(os.environ.get("PORT", 5000))
+
+    print(f"🌐 Server running on port {port}\n")
 
     # Run Flask server
     app.run(
         host="0.0.0.0",
-        port=5000,
+        port=port,
         debug=app.config["DEBUG"]
     )
