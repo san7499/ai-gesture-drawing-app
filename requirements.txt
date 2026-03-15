@@ -10,3 +10,4 @@ requests
 tqdm
 absl-py
 protobuf
+gunicorn
